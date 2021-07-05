@@ -4,6 +4,7 @@ Created by Alexey Bakshaev (alex.bakshaev@gmail.com), 2020
 import gym
 from gym import spaces
 from gym.utils import seeding
+from gym.envs.registration import EnvSpec
 import torch
 import numpy as np
 from os import path
@@ -31,6 +32,7 @@ class HedgingEnv(gym.Env):
         'render.modes': ['human', 'rgb_array'],
         'video.frames_per_second': 30
     }
+    spec = EnvSpec("HedgeEnv-v0")
 
     def __init__(self, use_skew = False, skew_beta = 0.5, reward_type = RewardType.MaxPnl, client_spread = 0.18, hedge_spread = 0.07):
         self.model_name = None
